@@ -24,22 +24,6 @@ Built with the **MERN stack**, it offers a smooth user-friendly experience with 
 **Other Tools:** Git, GitHub, Postman  
 
 ---
-
-## 🚀 Getting Started  
-
-### 1️⃣ Clone the Repository  
-```bash
-git clone https://github.com/shubhangi-gavhane/DreamStay.git
-cd DreamStay
-
-
-
-2️⃣ Install Dependencies
-npm install
-
-3️⃣ Run the Project
-npm start
-
 📌 Project Highlights
 
 Developed DreamStay, a hotel booking platform utilizing HTML, CSS, JavaScript, Node.js, Express.js, MongoDB, and Bootstrap to deliver a seamless user experience.
@@ -49,10 +33,19 @@ Enhanced UX with flash messages and custom error-handling middleware.
 Implemented RESTful APIs for data exchange and smooth integration.
 Deployed using Docker, Kubernetes, and AWS Cloud ensuring scalability and reliability.
 
+---
 
-📸 Screenshots
+## 🚀 Getting Started  
 
-Add screenshots of your project UI here for better visualization.
+### 1️⃣ Clone the Repository  
+```bash
+git clone https://github.com/shubhangi-gavhane/DreamStay.git
+cd DreamStay
 
-![Homepage](assets/home.png)
-![Booking Page](assets/booking.png)
+---
+
+2️⃣ Install Dependencies
+npm install
+---
+3️⃣ Run the Project
+npm start
