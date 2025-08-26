@@ -1,0 +1,60 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="container mt-5">
+  <div class="card col-6 offset-3 p-4">
+    <p class="mb-1"><strong><%= listing.title %></strong></p>
+    <p class="mb-3">Total Amount: ₹<%= listing.price %></p>
+
+    <!-- ✅ Fixed action URL -->
+    <form action="/listings/<%= listing._id %>/pay" method="POST" id="paymentForm">
+      <div class="mb-3">
+        <label class="form-label">Select Payment Method</label>
+        <select class="form-select" name="paymentMethod" id="paymentMethod" required>
+          <option value="" disabled selected>Choose...</option>
+          <option value="card">Card</option>
+          <option value="phonepe">PhonePe</option>
+          <option value="paytm">Paytm</option>
+          <option value="razorpay">Razorpay</option>
+        </select>
+      </div>
+
+      <!-- Card Payment Fields -->
+      <div id="cardFields" style="display: none;">
+        <div class="mb-3">
+          <label class="form-label">Card Number</label>
+          <input type="text" class="form-control" placeholder="1234 5678 9012 3456" name="cardNumber">
+        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <label class="form-label">Expiry (MM/YY)</label>
+            <input type="text" class="form-control" placeholder="12/25" name="expiry">
+          </div>
+          <div class="col">
+            <label class="form-label">CVV</label>
+            <input type="password" class="form-control" placeholder="•••" name="cvv">
+          </div>
+        </div>
+      </div>
+
+      <!-- UPI QR Code -->
+      <div id="qrInfo" style="display: none;" class="mb-3">
+        <p>Scan the QR code below with your selected app to pay:</p>
+        <img src="/QR.jpg" alt="QR Code" width="200" style="margin-left: 150px;" />
+      </div>
+
+      <button type="submit" class="btn btn-success w-100">Pay ₹<%= listing.price %></button>
+    </form>
+  </div>
+</div>
+
+<script>
+  const paymentSelect = document.getElementById("paymentMethod");
+  const cardFields = document.getElementById("cardFields");
+  const qrInfo = document.getElementById("qrInfo");
+
+  paymentSelect.addEventListener("change", function () {
+    const method = this.value;
+    cardFields.style.display = method === "card" ? "block" : "none";
+    qrInfo.style.display = (method === "phonepe" || method === "paytm" || method === "razorpay") ? "block" : "none";
+  });
+</script>
