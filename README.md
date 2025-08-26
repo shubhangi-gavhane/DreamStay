@@ -49,3 +49,7 @@ npm install
 ---
 3️⃣ Run the Project
 npm start
+
+---
+
+Check Screenshot in Assets Folder
